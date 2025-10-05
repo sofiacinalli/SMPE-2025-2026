@@ -30,14 +30,15 @@ Which means that built in is faster than sequential quicksort and parallel.
 There is a variation between sequential and paralel
 
 Having 100 elements: ./src/parallelQuicksort 100
-first time: 
-Sequential quicksort took: 0.000012 sec.
-Parallel quicksort took: 0.015687 sec.
-Built-in quicksort took: 0.000006 sec.
-second time: 
-Sequential quicksort took: 0.000011 sec.
-Parallel quicksort took: 0.018011 sec.
-Built-in quicksort took: 0.000006 sec.
-Third time:
+first time
+Sequential quicksort took: 0.000014 sec.
+Parallel quicksort took: 0.016857 sec.
+Built-in quicksort took: 0.000011 sec.
+second time
+Sequential quicksort took: 0.000018 sec.
+Parallel quicksort took: 0.016007 sec.
+Built-in quicksort took: 0.000007 sec.
+third time
 Sequential quicksort took: 0.000013 sec.
-
+Parallel quicksort took: 0.013217 sec.
+Built-in quicksort took: 0.000006 sec.

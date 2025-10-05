@@ -1,0 +1,43 @@
+Quicksort
+
+--> Choose a pivot aleatory value and then the system order each value following the condintion: 
+    - on the left the values<pivot 
+    - on the right the values>pivot 
+Parallel quicksort
+--> it make the same process as before but with more than one pivot in paralel. 
+Built in quicksort
+--> use C language to process it. Idem the first one but more optimized
+
+Experiment: Windows 
+First time: 
+./src/parallelQuicksort 
+Sequential quicksort took: 0.207954 sec.
+Parallel quicksort took: 0.264888 sec.
+Built-in quicksort took: 0.182777 sec.
+
+Second time:
+Sequential quicksort took: 0.224824 sec.
+Parallel quicksort took: 0.198254 sec.
+Built-in quicksort took: 0.171846 sec.
+
+Third time:
+Sequential quicksort took: 0.204111 sec.
+Parallel quicksort took: 0.254295 sec.
+Built-in quicksort took: 0.191175 sec.
+
+
+Which means that built in is faster than sequential quicksort and parallel. 
+There is a variation between sequential and paralel
+
+Having 100 elements: ./src/parallelQuicksort 100
+first time: 
+Sequential quicksort took: 0.000012 sec.
+Parallel quicksort took: 0.015687 sec.
+Built-in quicksort took: 0.000006 sec.
+second time: 
+Sequential quicksort took: 0.000011 sec.
+Parallel quicksort took: 0.018011 sec.
+Built-in quicksort took: 0.000006 sec.
+Third time:
+Sequential quicksort took: 0.000013 sec.
+

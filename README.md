@@ -1,12 +1,10 @@
 Quicksort
 
---> Choose a pivot aleatory value and then the system order each value following the condintion: 
-    - on the left the values<pivot 
+Choose a pivot aleatory value and then the system order each value following the condintion: 
+    - on the left the values<pivot
     - on the right the values>pivot 
-Parallel quicksort
---> it make the same process as before but with more than one pivot in paralel. 
-Built in quicksort
---> use C language to process it. Idem the first one but more optimized
+Parallel quicksort: it make the same process as before but with more than one pivot in paralel. 
+Built in quicksort use C language to process it. Idem the first one but more optimized
 
 Experiment: Windows 
 First time: 

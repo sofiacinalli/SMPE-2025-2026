@@ -108,6 +108,8 @@ while x < 3000000:
 
 print (matrix_register[2]) 
 
-3) Procedure with export the information:
+5) Procedure with export the information:
+python3 "Test parallelQuicksort.py"
+[900000, 0.144466, 0.14656, 0.122316]
 
-       
+

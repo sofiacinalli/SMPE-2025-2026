@@ -1,27 +1,28 @@
 Quicksort
 
 Choose a pivot aleatory value and then the system order each value following the condintion: 
-    - on the left the values<pivot
-    - on the right the values>pivot 
+a. on the left the values<pivot
+b. on the right the values>pivot 
+
 Parallel quicksort: it make the same process as before but with more than one pivot in paralel. 
 Built in quicksort use C language to process it. Idem the first one but more optimized
 
 Experiment: Windows 
 First time: 
 ./src/parallelQuicksort 
-Sequential quicksort took: 0.207954 sec.
-Parallel quicksort took: 0.264888 sec.
-Built-in quicksort took: 0.182777 sec.
+1. Sequential quicksort took: 0.207954 sec.
+2. Parallel quicksort took: 0.264888 sec.
+3. Built-in quicksort took: 0.182777 sec.
 
 Second time:
-Sequential quicksort took: 0.224824 sec.
-Parallel quicksort took: 0.198254 sec.
-Built-in quicksort took: 0.171846 sec.
+1. Sequential quicksort took: 0.224824 sec.
+2. Parallel quicksort took: 0.198254 sec.
+3. Built-in quicksort took: 0.171846 sec.
 
 Third time:
-Sequential quicksort took: 0.204111 sec.
-Parallel quicksort took: 0.254295 sec.
-Built-in quicksort took: 0.191175 sec.
+1. Sequential quicksort took: 0.204111 sec.
+2. Parallel quicksort took: 0.254295 sec.
+3. Built-in quicksort took: 0.191175 sec.
 
 
 Which means that built in is faster than sequential quicksort and parallel. 
@@ -29,17 +30,19 @@ There is a variation between sequential and paralel
 
 Having 100 elements: ./src/parallelQuicksort 100
 first time
-Sequential quicksort took: 0.000014 sec.
-Parallel quicksort took: 0.016857 sec.
-Built-in quicksort took: 0.000011 sec.
+1. Sequential quicksort took: 0.000014 sec.
+2. Parallel quicksort took: 0.016857 sec.
+3. Built-in quicksort took: 0.000011 sec.
+
 second time
-Sequential quicksort took: 0.000018 sec.
-Parallel quicksort took: 0.016007 sec.
-Built-in quicksort took: 0.000007 sec.
+1. Sequential quicksort took: 0.000018 sec.
+2. Parallel quicksort took: 0.016007 sec.
+3. Built-in quicksort took: 0.000007 sec.
+
 third time
-Sequential quicksort took: 0.000013 sec.
-Parallel quicksort took: 0.013217 sec.
-Built-in quicksort took: 0.000006 sec.
+1. Sequential quicksort took: 0.000013 sec.
+2. Parallel quicksort took: 0.013217 sec.
+3. Built-in quicksort took: 0.000006 sec.
 
 After doing some test, I made the following:
 1) Create a code in Python order to have more information: 
@@ -77,8 +80,6 @@ Name of the doc: test parallelQuicksort.py
 
 3) I process the code in Ubuntu because in python it doesnt function if i work with windows. 
 
-sofic@Sofia:~$ cd /mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master
-sofic@Sofia:/mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master$ code .
 sofic@Sofia:/mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master$ cd /mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master
 sofic@Sofia:/mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master$ python3 "test parallelQuicksort.py"
 Sequential quicksort took: 0.077588 sec.

@@ -112,7 +112,7 @@ print (matrix_register[2])
 python3 "Test parallelQuicksort.py"
 [900000, 0.144466, 0.14656, 0.122316]
 
-6) After that i procedure with the graph, so the complet algorithm is: 
+6) After that, in order to procedure with the graph, the complet algorithm is on PROJECT 1 - code: 
 
 And the resoult are:
 First time: 
@@ -123,6 +123,17 @@ Second time:
 
 Third time: 
 <img width="1591" height="809" alt="image" src="https://github.com/user-attachments/assets/34085541-dfcd-400f-a756-c53c258a240d" />
+
+Seen this graph we can say that is not something stable, but we can say that secuential programing has better behavior than parallel when we analyize less than 1.500.000 of values and sequential has the opposit behavior. In all of the cases, built-in takes less time, so we can say that it is the most optimous for all of the cases. But we cant conclude nothing if we don't have enaugh numbers of demostrations and also it doesent seams to be stable so we procedure with point 7
+
+7)Analyzing that is not something stable, we can create more runs of the process. For example: 5  
+
+<img width="800" height="500" alt="corrida_1" src="https://github.com/user-attachments/assets/eb0a5973-592f-425a-9c5a-f4d7a5d1fda5" />
+<img width="800" height="500" alt="corrida_2" src="https://github.com/user-attachments/assets/4b51591e-15f6-433d-8cd6-267f73e0703f" />
+<img width="800" height="500" alt="corrida_3" src="https://github.com/user-attachments/assets/6c7b1a7f-bbd8-4c37-92d6-40475bb10a16" />
+<img width="800" height="500" alt="corrida_4" src="https://github.com/user-attachments/assets/7459c7f8-321a-439b-bd8e-5e1336283ba8" />
+<img width="800" height="500" alt="corrida_5" src="https://github.com/user-attachments/assets/22cc149e-a680-4d25-96f8-c9a3f428d453" />
+
 
 
 

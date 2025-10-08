@@ -44,6 +44,7 @@ third time
 2. Parallel quicksort took: 0.013217 sec.
 3. Built-in quicksort took: 0.000006 sec.
 
+Conclusion: for numbers < 100 built-in is more quickly than the others
 After doing some test, I made the following:
 1) Create a code in Python order to have more information: 
 Name of the doc: test parallelQuicksort.py

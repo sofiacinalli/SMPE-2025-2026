@@ -126,15 +126,63 @@ Third time:
 
 Seen this graph we can say that is not something stable, but we can say that secuential programing has better behavior than parallel when we analyize less than 1.500.000 of values and sequential has the opposit behavior. In all of the cases, built-in takes less time, so we can say that it is the most optimous for all of the cases. But we cant conclude nothing if we don't have enaugh numbers of demostrations and also it doesent seams to be stable so we procedure with point 7
 
-7)Analyzing that is not something stable, we can create more runs of the process. For example: 5  
+7)Analyzing that is not something stable, we can create more runs of the process. For example: 5  (change the algorithm (Test parallelQuicksort.py) in order to generate the graphs)
+<img width="800" height="500" alt="corrida_1" src="https://github.com/user-attachments/assets/5021fc21-c8c8-4b38-8c0e-ca639210bef3" />
+<img width="800" height="500" alt="corrida_2" src="https://github.com/user-attachments/assets/8be76b03-4063-4f2d-bb22-42985c5f04cf" />
+<img width="800" height="500" alt="corrida_3" src="https://github.com/user-attachments/assets/5a2cea17-a814-47a3-8d0b-d7036a17f280" />
+<img width="800" height="500" alt="corrida_4" src="https://github.com/user-attachments/assets/ac7cb25f-57b6-40be-ba36-b11eb5865b7a" />
+<img width="800" height="500" alt="corrida_5" src="https://github.com/user-attachments/assets/2638bef2-9bd9-4215-bf6f-2522a3d22f92" />
 
-<img width="800" height="500" alt="corrida_1" src="https://github.com/user-attachments/assets/eb0a5973-592f-425a-9c5a-f4d7a5d1fda5" />
-<img width="800" height="500" alt="corrida_2" src="https://github.com/user-attachments/assets/4b51591e-15f6-433d-8cd6-267f73e0703f" />
-<img width="800" height="500" alt="corrida_3" src="https://github.com/user-attachments/assets/6c7b1a7f-bbd8-4c37-92d6-40475bb10a16" />
-<img width="800" height="500" alt="corrida_4" src="https://github.com/user-attachments/assets/7459c7f8-321a-439b-bd8e-5e1336283ba8" />
-<img width="800" height="500" alt="corrida_5" src="https://github.com/user-attachments/assets/22cc149e-a680-4d25-96f8-c9a3f428d453" />
+8) Until now the code only print the information of the 5 runs but it isn't stored so it is necesary to add inside the for the following sentences:
+ all_run = []    # in order to declarate the matrix
+for run in range(1,6):
+    data = matrix_quicksort()
+    all_run.append(data)   #in order to stored the 3 values generated in each run
 
+This is with the idea of generate a media between the 5 values and then plot it. So que add this to the code: 
 
+import numpy as np
+media_seq = []
+
+for i in range(10):  #10 because of the increment 300.000 and <3.000.000
+    values_seq = np.array([all_run[r][i][1] for r in range(5)])   #5 the number of runs
+    media_seq = np.mean(valores_seq) 
+    medias_seq.append(media_seq)  
+
+For graph: 
+for i in range(10):  #10 because of the increment 300.000 and <3.000.000
+    values_seq = np.array([all_run[r][i][1] for r in range(5)])   #5 the number of runs
+    prom_seq = np.mean(values_seq) 
+    media_seq.append(prom_seq)  
+    
+    values_par = np.array([all_run[r][i][2] for r in range(5)])  
+    prom_par = np.mean(values_par) 
+    media_par.append(prom_par)  
+
+    values_built = np.array([all_run[r][i][3] for r in range(5)])   
+    prom_built = np.mean(values_built) 
+    media_built.append(prom_built)  
+
+#graph media
+sizes = [row[0] for row in all_run[0]]        
+
+plt.figure(figsize=(8,5))
+plt.plot(sizes, media_seq, color="red", marker="o", label="Sequential")
+plt.plot(sizes, media_par, color="green", marker="*", label="Parallel")
+plt.plot(sizes,media_built, color="blue", marker="+", label="Built-in")
+
+plt.xlabel("Array size")
+plt.ylabel("Time")
+plt.title("Comparison of Quicksort times")
+plt.grid(True)                      #grid 
+plt.legend(loc='upper right')       #legend
+plt.tight_layout()
+plt.savefig("test_media.png")
+plt.close()
+
+*The graph of the media:
+
+<img width="800" height="500" alt="test_media" src="https://github.com/user-attachments/assets/16e9df40-cfdf-49b7-b0a5-32ffb09354d6" />
 
 
 

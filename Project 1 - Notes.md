@@ -180,9 +180,18 @@ plt.tight_layout()
 plt.savefig("test_media.png")
 plt.close()
 
-*The graph of the media:
+*The graph of the media with 5 iterations:
 
 <img width="800" height="500" alt="test_media" src="https://github.com/user-attachments/assets/16e9df40-cfdf-49b7-b0a5-32ffb09354d6" />
+
+9. Having only 5 iterations is not sufficient to make a prediction so lets try to run it 30 times. And the graph of the media is the following:
+<img width="800" height="500" alt="test_media" src="https://github.com/user-attachments/assets/049d5864-966c-4592-a3ff-fe5138036976" />
+
+10. Then we analize the confidence interval and we have the followings graphs: (we analized the CI with the T-STUDENT distribution because we don't know the real distribution of the function and the number of iterations is not so hi). The confidence that we use is 95%
+<img width="900" height="500" alt="test_media_ci95" src="https://github.com/user-attachments/assets/4e9deca7-ff6b-4a7e-bd74-65980bf374e0" />
+
+Conclusion: 
+
 
 
 

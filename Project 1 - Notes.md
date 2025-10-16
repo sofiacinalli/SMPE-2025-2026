@@ -1,3 +1,4 @@
+
 Quicksort
 
 Choose a pivot aleatory value and then the system order each value following the condintion: 

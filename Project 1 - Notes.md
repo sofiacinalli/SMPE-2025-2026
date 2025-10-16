@@ -4,11 +4,11 @@ Idea: run the code in different computers and compare results obtained from the 
 
 *Analyze the code*
 The code is configurated to show the time each algorithm takes to perform Quicksort using different techniques: 
-     1. Sequential: the code select a random pivot and then sorts the elements according the following condintion: 
-          a. on the left: the values < pivot
-          b. on the right: the values > pivot 
-     2. Parallel: similar to sequential sort but ir select more than one pivot and make the sort in paprallel.
-     3. Built-in: uses the built-in C function to process the sorting. It performs as the 1 but in a more optimized way. 
+1. Sequential: the code select a random pivot and then sorts the elements according the following condintion: 
+     a. on the left: the values < pivot
+     b. on the right: the values > pivot 
+2. Parallel: similar to sequential sort but ir select more than one pivot and make the sort in paprallel.
+3. Built-in: uses the built-in C function to process the sorting. It performs as the 1 but in a more optimized way. 
 
 **Experiment**
 Frsts runs in UBUNTU: ./src/parallelQuicksort

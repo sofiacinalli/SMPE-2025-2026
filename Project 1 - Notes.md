@@ -24,9 +24,7 @@ Third time:
 2. Parallel quicksort took: 0.254295 sec.
 3. Built-in quicksort took: 0.191175 sec.
 
-
-Which means that built in is faster than sequential quicksort and parallel. 
-There is a variation between sequential and paralel
+obs! From the first process of the algorithm we can say that built-in is faster than sequential quicksort and parallel. And there are some aleatory variations between sequential and paralel
 
 Having 100 elements: ./src/parallelQuicksort 100
 first time
@@ -112,7 +110,7 @@ print (matrix_register[2])
 python3 "Test parallelQuicksort.py"
 [900000, 0.144466, 0.14656, 0.122316]
 
-6) After that, in order to procedure with the graph, the complet algorithm is on PROJECT 1 - code: 
+6) After that, the firsts results   the complet algorithm is on PROJECT 1 - code: 
 
 And the resoult are:
 First time: 

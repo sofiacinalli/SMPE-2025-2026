@@ -59,7 +59,7 @@ The sequential version performs better than the parallel one, which shows that p
 ___
 # **Create a code** 
 
-#***1) Create a code in Python order to have more information and print the results:*** 
+***1) Create a code in Python order to have more information and print the results:*** 
 Name of the file: test parallelQuicksort.py
 
 ```     import subprocess
@@ -76,7 +76,7 @@ Name of the file: test parallelQuicksort.py
                 x = x + 300000
 ```
 
-#***2) Choose 1 value for check a specific value:***
+***2) Choose 1 value for check a specific value:***
 ```
      print (matrix_register[2]) 
 ```

@@ -1,4 +1,4 @@
-**Quicksort experiment**
+# **Quicksort experiment**
 
 Idea: run the code in different computers and compare results obtained from the different runs, and systems.
 
@@ -9,14 +9,15 @@ The code is configurated to show the time each algorithm takes to perform Quicks
      b. on the right: the values > pivot 
 2. Parallel: similar to sequential sort but ir select more than one pivot and make the sort in paprallel.
 3. Built-in: uses the built-in C function to process the sorting. It performs as the 1 but in a more optimized way. 
+___
+# **Experiment** 
 
-**Experiment**
-Frsts runs in UBUNTU: ./src/parallelQuicksort
+**Experiment withoutchanging any parameters**
+Firsts runs in UBUNTU: ./src/parallelQuicksort
 
 The first step was to run the code (without change any parameter) nd see what results:
 
 *First time:*
-./src/parallelQuicksort 
 1. Sequential quicksort took: 0.207954 sec.
 2. Parallel quicksort took: 0.264888 sec.
 3. Built-in quicksort took: 0.182777 sec.
@@ -31,30 +32,37 @@ The first step was to run the code (without change any parameter) nd see what re
 2. Parallel quicksort took: 0.254295 sec.
 3. Built-in quicksort took: 0.191175 sec.
 
-Conclusion from this part: we can say that in all the 3 cases built-in is faster than sequential and parallel. There are also some variations between sequential and parallel depending on the run.
+Conclusion from this part: we can say that in all the 3 cases built-in is faster than sequential and parallel. There are also some variations between sequential and parallel depending on the run but the results obtains are similar.
 
-Having 100 elements: ./src/parallelQuicksort 100
-first time
+**Experiment changing the number of elements** 
+./src/parallelQuicksort 100
+
+*First time:*
 1. Sequential quicksort took: 0.000014 sec.
 2. Parallel quicksort took: 0.016857 sec.
 3. Built-in quicksort took: 0.000011 sec.
 
-second time
+*Second time:*
 1. Sequential quicksort took: 0.000018 sec.
 2. Parallel quicksort took: 0.016007 sec.
 3. Built-in quicksort took: 0.000007 sec.
 
-third time
+*Third time*
 1. Sequential quicksort took: 0.000013 sec.
 2. Parallel quicksort took: 0.013217 sec.
 3. Built-in quicksort took: 0.000006 sec.
 
-Conclusion: for numbers < 100 built-in is more quickly than the others
-After doing some test, I made the following:
-1) Create a code in Python order to have more information: 
-Name of the doc: test parallelQuicksort.py
+*Conclusion:*
+For arrays smaller than 100 elements, the built-in version is again the fastest.
+The sequential version performs better than the parallel one, which shows that parallelization introduces overhead for small inputs
 
-     import subprocess
+___
+# **Create a code** 
+
+1) Create a code in Python order to have more information: 
+Name of the file: test parallelQuicksort.py
+
+```     import subprocess
             x = 0
             matrix_register = []
             
@@ -83,7 +91,7 @@ Name of the doc: test parallelQuicksort.py
                 matrix_register.append(result.stdout)
                 x = x + 300000
      print (matrix_register[2]) 
-
+```
 3) I process the code in Ubuntu because in python it doesnt function if i work with windows. 
 
 sofic@Sofia:/mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master$ cd /mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master

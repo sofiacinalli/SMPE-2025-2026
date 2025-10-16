@@ -59,7 +59,7 @@ The sequential version performs better than the parallel one, which shows that p
 ___
 # **Create a code** 
 
-1) Create a code in Python order to have more information: 
+#***1) Create a code in Python order to have more information and print the results:*** 
 Name of the file: test parallelQuicksort.py
 
 ```     import subprocess
@@ -74,33 +74,28 @@ Name of the file: test parallelQuicksort.py
                     )
                 matrix_register.append(result.stdout)
                 x = x + 300000
+```
 
-2) Choose 1 value for check the resault:
-Name of the doc: test parallelQuicksort.py
-
-     import subprocess
-            x = 0
-            matrix_register = []
-            
-            while x < 3000000:
-                result = subprocess.run(
-                    ["./src/parallelQuicksort", str(x)], 
-                    capture_output = True,
-                    text = True
-                    )
-                matrix_register.append(result.stdout)
-                x = x + 300000
+#***2) Choose 1 value for check a specific value:***
+```
      print (matrix_register[2]) 
 ```
-3) I process the code in Ubuntu because in python it doesnt function if i work with windows. 
-
+I process the code in Ubuntu because in python it doesnt function if i work with windows.
+```
 sofic@Sofia:/mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master$ cd /mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master
 sofic@Sofia:/mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master$ python3 "test parallelQuicksort.py"
+```
+Output: 
+```
 Sequential quicksort took: 0.077588 sec.
 Parallel quicksort took: 0.141773 sec.
 Built-in quicksort took: 0.043563 sec.
+```
 
-4) At that moment I recognize that each value has text and number so it will be a problem when I will try to graph so I modify the code in order to only have the numbers.
+*Extracting only numeric values*
+At that moment I recognize that each value has text and number so it will be a problem when I will try to graph so I modify the code in order to only have the numbers.
+
+```
 import subprocess
 x = 0
 matrix_register = []
@@ -120,12 +115,15 @@ while x < 3000000:
     x = x + 300000
 
 print (matrix_register[2]) 
+```
 
-5) Procedure with export the information:
+*Example output:* 
+```
 python3 "Test parallelQuicksort.py"
 [900000, 0.144466, 0.14656, 0.122316]
+```
 
-6) After that, in order to procedure with the graph, the complet algorithm is on PROJECT 1 - code: 
+3) After that, in order to procedure with the graph, the complet algorithm is on PROJECT 1 - code: 
 
 And the resoult are:
 First time: 

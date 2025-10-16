@@ -1,19 +1,19 @@
 **Quicksort experiment**
 
-Idea: run the code in different computers and compare the different result obtains between the different runs, diferent computers.
+Idea: run the code in different computers and compare results obtained from the different runs, and systems.
 
 *Analyze the code*
-The code is configurated to show the time that take the computer to find a Quicksort using different techniques. 
-     1. Sequential: code prepared to select a pivot aleatory value and then the system order each value following the condintion: 
-          a. on the left the values<pivot
-          b. on the right the values>pivot 
-     2. Parallel: code prepared to do the same but by selecting more than one pivot and make the order in paprallel.
-     3. Built-in: use C language to process it. It has the same funtion as the 1 but more optimized. 
+The code is configurated to show the time each algorithm takes to perform Quicksort using different techniques: 
+     1. Sequential: the code select a random pivot and then sorts the elements according the following condintion: 
+          a. on the left: the values < pivot
+          b. on the right: the values > pivot 
+     2. Parallel: similar to sequential sort but ir select more than one pivot and make the sort in paprallel.
+     3. Built-in: uses the built-in C function to process the sorting. It performs as the 1 but in a more optimized way. 
 
 **Experiment**
 Frsts runs in UBUNTU: ./src/parallelQuicksort
 
-what we have done first is tu run the code (without change any parameter) make any  and see what results it bring to us:
+The first step was to run the code (without change any parameter) nd see what results:
 
 *First time:*
 ./src/parallelQuicksort 
@@ -31,7 +31,7 @@ what we have done first is tu run the code (without change any parameter) make a
 2. Parallel quicksort took: 0.254295 sec.
 3. Built-in quicksort took: 0.191175 sec.
 
-Conclusion from this part: we can say that in all the 3 cases built-in is faster than sequential quicksort and parallel. And there are some variations between sequential and parallel. 
+Conclusion from this part: we can say that in all the 3 cases built-in is faster than sequential and parallel. There are also some variations between sequential and parallel depending on the run.
 
 Having 100 elements: ./src/parallelQuicksort 100
 first time

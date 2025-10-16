@@ -185,13 +185,19 @@ plt.close()
 <img width="800" height="500" alt="test_media" src="https://github.com/user-attachments/assets/16e9df40-cfdf-49b7-b0a5-32ffb09354d6" />
 
 9. Having only 5 iterations is not sufficient to make a prediction so lets try to run it 30 times. And the graph of the media is the following:
-<img width="800" height="500" alt="test_media" src="https://github.com/user-attachments/assets/049d5864-966c-4592-a3ff-fe5138036976" />
+<img width="800" height="500" alt="test_media" src="https://github.com/user-attachments/assets/ed2f4101-933e-46f7-be93-31a4adbd82ce" />
 
-10. Then we analize the confidence interval and we have the followings graphs: (we analized the CI with the T-STUDENT distribution because we don't know the real distribution of the function and the number of iterations is not so hi). The confidence that we use is 95%
-<img width="900" height="500" alt="test_media_ci95" src="https://github.com/user-attachments/assets/4e9deca7-ff6b-4a7e-bd74-65980bf374e0" />
+
+10. Then we analize the confidence interval and we have the followings graphs: (we analized the CI with the T-STUDENT distribution because we don't know the real distribution of the function neither the number of iterations is not so hi). The confidence that we use is 95%
+<img width="900" height="500" alt="test_media_ci95" src="https://github.com/user-attachments/assets/76659284-a15b-4a15-9710-d18312956752" />
+
+<img width="900" height="500" alt="BUILTIN_media_ci95" src="https://github.com/user-attachments/assets/7611f8bc-5173-41ee-9429-54fbe72dc8b5" />
+<img width="900" height="500" alt="sequential_media_ci95" src="https://github.com/user-attachments/assets/8e0188d3-08af-4638-8a8c-3c83d580e61e" />
+<img width="900" height="500" alt="parallel_media_ci95" src="https://github.com/user-attachments/assets/07886ab9-9c09-4ad6-9196-ae059dabd7d9" />
 
 Conclusion: 
-
+- Using the built-in C implementation is the most efficient option for processing datasets of approximately 1.8 million elements or fewer. For larger datasets, the parallel version outperforms the built-in one. Further analysis is needed to understand whether this trend continues for even larger inputs.
+-  The sequential implementation performs better than the parallel one for datasets smaller than 600,000 elements. Beyond this point, the parallel algorithm becomes faster, while the sequential version’s runtime increases more sharply.
 
 
 

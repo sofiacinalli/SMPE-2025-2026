@@ -1,32 +1,37 @@
-Quicksort
+**Quicksort experiment**
 
-Choose a pivot aleatory value and then the system order each value following the condintion: 
-a. on the left the values<pivot
-b. on the right the values>pivot 
+Idea: run the code in different computers and compare the different result obtains between the different runs, diferent computers.
 
-Parallel quicksort: it make the same process as before but with more than one pivot in paralel. 
-Built in quicksort use C language to process it. Idem the first one but more optimized
+*Analyze the code*
+The code is configurated to show the time that take the computer to find a Quicksort using different techniques. 
+     1. Sequential: code prepared to select a pivot aleatory value and then the system order each value following the condintion: 
+          a. on the left the values<pivot
+          b. on the right the values>pivot 
+     2. Parallel: code prepared to do the same but by selecting more than one pivot and make the order in paprallel.
+     3. Built-in: use C language to process it. It has the same funtion as the 1 but more optimized. 
 
-Experiment: Windows 
-First time: 
+**Experiment**
+Frsts runs in UBUNTU: ./src/parallelQuicksort
+
+what we have done first is tu run the code (without change any parameter) make any  and see what results it bring to us:
+
+*First time:*
 ./src/parallelQuicksort 
 1. Sequential quicksort took: 0.207954 sec.
 2. Parallel quicksort took: 0.264888 sec.
 3. Built-in quicksort took: 0.182777 sec.
 
-Second time:
+*Second time:*
 1. Sequential quicksort took: 0.224824 sec.
 2. Parallel quicksort took: 0.198254 sec.
 3. Built-in quicksort took: 0.171846 sec.
 
-Third time:
+*Third time:*
 1. Sequential quicksort took: 0.204111 sec.
 2. Parallel quicksort took: 0.254295 sec.
 3. Built-in quicksort took: 0.191175 sec.
 
-
-Which means that built in is faster than sequential quicksort and parallel. 
-There is a variation between sequential and paralel
+Conclusion from this part: we can say that in all the 3 cases built-in is faster than sequential quicksort and parallel. And there are some variations between sequential and parallel. 
 
 Having 100 elements: ./src/parallelQuicksort 100
 first time

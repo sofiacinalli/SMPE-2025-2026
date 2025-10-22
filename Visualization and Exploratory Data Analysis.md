@@ -22,7 +22,7 @@ _DATA:_
 1. YES. The type of graph is adapted to the nature of the data. 
 2. YES. Approximations/interpolation make sense. 
 3. NO. Curves are defined by a sufficient number of points. 
-4. YES. The building method of the curve is clear : interpolation (linear, polynomial,regression...). 
+4. NO. The building method of the curve is clear : interpolation (linear, polynomial,regression...). 
 5. NO. Confidence intervals are visualized (or given separately)
 6. NO. Steps of histograms are adequate
 7. NO. Histograms visualize probabilities (from 0 to 1).
@@ -81,7 +81,7 @@ _DATA:_
 1. YES. The type of graph is adapted to the nature of the data. 
 2. YES. Approximations/interpolation make sense.
 3. YES. Curves are defined by a sufficient number of points.
-4. YES. The building method of the curve is clear : interpolation (linear, polynomial,regression...). 
+4. NO. The building method of the curve is clear : interpolation (linear, polynomial,regression...). 
 5. NO. Confidence intervals are visualized (or given separately)
 6. NO. Steps of histograms are adequate
 7. NO. Histograms visualize probabilities (from 0 to 1).
@@ -126,50 +126,50 @@ _Context:_
 _______
 
 ## Third graph:
-<img width="381" height="320" alt="GRAPH 3" src="https://github.com/user-attachments/assets/152e4937-c26f-469c-a198-82a1baf6b98c" />
+<img width="314" height="226" alt="GRAPH 3" src="https://github.com/user-attachments/assets/9d9284d1-8a52-4ad6-b8a8-52ec528de380" />
 
-DATA:
-1. YES. The type of graph is adapted to the nature of the data. 
+_DATA:_
+1. NO. The type of graph is adapted to the nature of the data. (It will depends on the focus of the graph)
 2. YES. Approximations/interpolation make sense.
 3. YES. Curves are defined by a sufficient number of points.
-4. YES. The building method of the curve is clear : interpolation (linear, polynomial,regression...). 
+4. NO. The building method of the curve is clear : interpolation (linear, polynomial,regression...). 
 5. NO. Confidence intervals are visualized (or given separately)
 6. NO. Steps of histograms are adequate
 7. NO. Histograms visualize probabilities (from 0 to 1).
 
-Graphical objects
+_Graphical objects_
 1. YES. Graphical objects are readable on screen, on printed version (B/W), on video... ;
-2. YES. Graphic range is standard, without too similar colors, without green (video) 
+2. NO. Graphic range is standard, without too similar colors, without green (video) 
 3. NO. Graphical axis are well identified and labelled;
-4. YES. Scales and units are explicits;
-5. N/A. Curves cross without ambiguity;
-6. YES. Grids help the reader.
+4. NO. Scales and units are explicits;
+5. NO. Curves cross without ambiguity;
+6. NO. Grids help the reader.
 
-Annotations
+_Annotations_
 1. NO. Axis are labelled by quantities;
 2. NO. Labels of the axis are clear, and self contained;
 3. NO. Units are indicated on the axis;
 4. YES. Axes are oriented from the left to the right and from the bottom to the top;
 5. YES. Origin is (00), if not it should be clearly justified
 
-Annotations (2)
+_Annotations (2)_
 1. N/A. For bar graphs/histograms order of bars is based on classical ordering (alphabetical, temporal, from the best to the worse) are better than a random order;
 2. YES. Each curve has a legend;
 3. N/A. Each bar has a legend;
 
- Information
-1. n/a. Curves are on the same scale;
+ _Information_
+1. YES. Curves are on the same scale;
 2. YES. The number of curves on a same graph is small (less than 6);
-3. NO. Compare curves on a same graphic;
+3. YES. Compare curves on a same graphic;
 4. YES. A curve cannot be removed without reducing the information;
 5. YES. The graphic gives a relevant information to the reader;
 6. N/A. If the vertical axis shows averages, it should indicates error bars;
 7. YES. It is not possible to remove any objet without modifying the readability of the graphic.
 
-Context:
+_Context:_
 1. N/A. All the symbols are defined and referenced in the text;
 2. YES. The graphic produces more information than any other representation (choice of the variable);
-3. YES. The graphic has a title;
-4. YES. The title is sufficiently self contained to partially understand the graphic;
+3. NO. The graphic has a title;
+4. NO. The title is sufficiently self contained to partially understand the graphic;
 5. N/A. The graphic is referenced in the text;
 6. N/A The text comment the figure.

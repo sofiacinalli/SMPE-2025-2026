@@ -14,8 +14,7 @@ If you are doing the graph:
 
 Some analysis of the graph using the check list:
 First graph: 
-https://github.com/sofiacinalli/SMPE-2025-2026/commit/681ce0915fc2320d9f715936d24ca18f7bc901c5
-[GRAPH 1](https://github.com/sofiacinalli/SMPE-2025-2026/commit/681ce0915fc2320d9f715936d24ca18f7bc901c5)
+<img width="382" height="258" alt="GRAPH  - LE CHOMAGE" src="https://github.com/user-attachments/assets/d933e82b-0334-4178-9d89-38cbda2699c3" />
 
 DATA:
 1. YES. The type of graph is adapted to the nature of the data. 

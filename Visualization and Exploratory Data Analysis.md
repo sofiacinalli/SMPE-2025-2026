@@ -13,7 +13,8 @@ If you are doing the graph:
   5. make more than one graph and choose the most clear and simple
 
 Some analysis of the graph using the check list:
-First graph: 
+First graph:
+
 <img width="382" height="258" alt="GRAPH  - LE CHOMAGE" src="https://github.com/user-attachments/assets/d933e82b-0334-4178-9d89-38cbda2699c3" />
 
 DATA:

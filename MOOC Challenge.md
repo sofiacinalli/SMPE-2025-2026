@@ -9,8 +9,8 @@ It is also usefull to chech your information if somethings goes wrong.
 
 There are several examples where trazability was missing and their studies failed. Examples of that are:
 - Economics - Reinhart & Rogoff (2010) when other researchers tried to replicate the study, they found spreadsheet errors and missing data.
-Neuroscience - Dead Fish study. Brain imaging allows us to observe somebody's brain activity. while they are performing a task. It helps us understand how the brain works and is structured.. Contrafact: they put a death fish and realized and hey noticed signs of brain activity → The raw data obtained during an MRI has a lot of noise.. If the data was allowd to anyone perhaps it will be detected on time.
-Structural Biology – Geoffrey Chang Case: published articles in famous magazines  about the structure of proteins present in cell membranes. He found different results as other studios and after analysis realized that he inherited the code from another lab and it had been used by other teams.Even if the data had been carefully acquired, the analysis had not.
+- Neuroscience - Dead Fish study. Brain imaging allows us to observe somebody's brain activity. while they are performing a task. It helps us understand how the brain works and is structured.. Contrafact: they put a death fish and realized and hey noticed signs of brain activity → The raw data obtained during an MRI has a lot of noise.. If the data was allowd to anyone perhaps it will be detected on time.
+- Structural Biology – Geoffrey Chang Case: published articles in famous magazines  about the structure of proteins present in cell membranes. He found different results as other studios and after analysis realized that he inherited the code from another lab and it had been used by other teams.Even if the data had been carefully acquired, the analysis had not.
 
 So transparency is escential to avoid errors in all the studies.
 

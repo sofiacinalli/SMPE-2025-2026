@@ -20,15 +20,11 @@ Types of computational documents:
 - Emacs / org-mode text + code. More technical
 
 This tools are usefull to create documents that can be exported to pdf, html but it is not usefull when we want to share the documentation and accept the opinions of others 
-So here they propouse different types of tools to share documents.
+So here there are some different types of tools to share documents:
 
-Method             Advantages            Limitations
----
-RPubs:             Fast and easy         Data hosted temporarly
-Dropbox            Simple                No version control, no guarantee
-GitLab/GitHub      Version control/      All the information is publish you must 
-                   Colaboration          clean the repository first and save a version
-                                         of what you have submit.
-Open archives      
+RPubs: Fast and easy but data hosted temporarly
+Dropbox: Simple. No version control, no guarantee
+GitLab/GitHub: Version control and colaroboration. All the information is publish you must clean the repository first and save a version of what you have submit.
+
 To pick up the best it will depend on the coauthors, any technical, confidentiality and copyright constraints. 
 And there will be some difficulties but there are solutions, keep trying.

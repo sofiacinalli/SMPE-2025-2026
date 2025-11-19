@@ -1,5 +1,12 @@
 Reproduction of the Challenge
 ---
-Link to the document: 
+Link to the document: [MOOC-Challenger---SMPE.pdf](https://github.com/user-attachments/files/23634189/MOOC-Challenger---SMPE.pdf)
 
-[pdf - mooc challenger.pdf](https://github.com/user-attachments/files/23628486/pdf.-.mooc.challenger.pdf)
+
+
+
+Language: R  
+Language version: 4.5.1 
+Main libraries:
+Tool:
+Operating System: 

@@ -8,19 +8,19 @@ Operating System:
 
 Coments about the project: 
 ---
-a) 
+a) Dataset
 -
 After reviewing the dataset, we can see that not all measurements were taken under the same pressure conditions.
 To ensure a consistent and valid comparison, I recommend removing all observations with Pressure ≠ 200, since temperature effects should be evaluated under the same pressure level. We also know that temperature depends on pressure, so mixing different pressure values would bias the analysis.
 
 In addition, there is an invalid date ("7/2903/85") that should be removed.
 
-b)
+b) Plot
 -
 A new plot showing the ratio Malfunction/Count as a function of Temperature should be generated using the cleaned dataset.
 [Temperture_filter_data.pdf](https://github.com/user-attachments/files/23916902/Temperture_filter_data.pdf)
 
-c) 
+c) Updated model
 -
 The updated model fitted to the filtered data is:
 
@@ -32,7 +32,7 @@ Coefficients:
             Estimate Std. Error z value Pr(>|z|)  
 (Intercept)  3.96165    2.97440   1.332   0.1829  
 Temperature -0.09372    0.04625  -2.026   0.0427 *
----
+
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 (Dispersion parameter for binomial family taken to be 1)

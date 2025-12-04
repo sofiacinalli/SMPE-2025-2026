@@ -1,0 +1,91 @@
+---
+title: "Risk Analysis of the Space Shuttle"
+output: pdf_document
+---
+Access to the libreries 
+
+```{r setup, include=FALSE}
+library(ggplot2)
+sessionInfo()
+```
+
+Open the file
+
+```{r}
+data= read.csv("C:/Users/sofic/OneDrive/Escritorio/Sofi/R Projects/Challenger - SMPE/moocrr-reproducibility-study-master/data/shuttle.csv")
+ data
+```
+
+Filter data with presure=200 and elimintate value with date: 7/2903/85 and plot it
+
+```{r}
+data_filtered <- data[data$Pressure == 200 & data$Date != "7/2903/85",]
+plot(data=data_filtered,Malfunction/Count ~Temperature,ylim=c(0,1))
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+ logistic_reg = glm(data=data_filtered, Malfunction/Count ~ Temperature, weights=Count,
+ family=binomial(link='logit'))
+ summary(logistic_reg)
+```
+
+Predicting failure probability
+```{r}
+ tempv = seq(from=30, to=90, by = .5)
+ rmv <- predict(logistic_reg,list(Temperature=tempv),type="response")
+ plot(tempv,rmv,type="l",ylim=c(0,1))
+ points(data=data_filtered, Malfunction/Count ~ Temperature)
+```
+
+Confidence on the prediction
+```{r}
+data_flat <- data.frame()
+
+for(i in 1:nrow(data_filtered)){
+  temperature <- data_filtered[i, "Temperature"]
+  malfunction <- data_filtered[i, "Malfunction"]
+  d <- data.frame(
+    Temperature = temperature,
+    Malfunction = rep(0, times = data_filtered[i, "Count"])
+  )
+  if(malfunction > 0){
+    d[1:malfunction, "Malfunction"] <- 1
+  }
+  data_flat <- rbind(data_flat, d)
+}
+dim(data_flat)
+
+ str(data_flat)
+```
+
+Logistic regression
+```{r}
+logistic_reg_flat=glm(data=data_flat,Malfunction~ Temperature,family=binomial(link='logit'))
+ summary(logistic_reg)
+```
+
+Plot Confidence interval
+```{r}
+ ggplot(data=data_flat, aes(y=Malfunction, x=Temperature)) +
+ geom_smooth(method = "glm", method.args = list(family = "binomial"), fullrange=T) +
+ geom_point(data=data_filtered, aes(y=Malfunction/Count, x=Temperature),alpha=.2, size = 2, color="blue") +
+ geom_point(alpha=.5, size = .5) +
+ xlim(30,90) + ylim(0,1) + theme_bw()
+```
+
+Numbers to chceck logistic Regresion
+```{r}
+ pred_link = predict(logistic_reg_flat,list(Temperature=30),type="link",se.fit = T)
+ pred_link
+```
+```{r}
+logistic_reg$family$linkinv(pred_link$fit)
+```
+
+```{r}
+critval = 1.96
+ logistic_reg$family$linkinv(c(pred_link$fit-critval*pred_link$se.fit,
+ pred_link$fit+critval*pred_link$se.fit))
+```
+

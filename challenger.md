@@ -69,20 +69,7 @@ e) Confidence on the prediction
 -
 Plot <img width="604" height="604" alt="regression for data_flat" src="https://github.com/user-attachments/assets/85cf3016-6ca2-4ffb-8447-44436d20abb8" />
 
-logistic_reg$family$linkinv(pred_link$fit)
-1 
-0.7595098 
-
 I obtain 0.7595 for the estimated failure probability at 30°.
-
-critval = 1.96    
-logistic_reg$family$linkinv(c(pred_link$fit - critval * pred_link$se.fit,
-                              pred_link$fit + critval * pred_link$se.fit))
-        1         1 
- 0.1189587 0.9866436 
-
-
-
-With this values we can say that with 95% confidence interval for our estimation is thus [0.119,0.986].
+After making proves in the confidence interval we can say that with 95% confidence, the interval for our estimation is thus [0.119,0.986].
 
 

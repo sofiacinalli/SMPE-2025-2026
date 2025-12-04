@@ -66,7 +66,8 @@ New plot: <img width="604" height="604" alt="Predicting failure probability_filt
 If we compare the new plot with the old plot, we can see that the updated model has a curve with a smaller slope. This means that the effect of temperature on the failure becomes weaker after cleaning the data. This change is expected because the original dataset included observations with different pressure levels. When we keep only the data with Pressure = 200, the model shows a more accurate and smoother effect of temperature.
 
 e) Confidence on the prediction
-- Plot <img width="604" height="604" alt="regression for data_flat" src="https://github.com/user-attachments/assets/85cf3016-6ca2-4ffb-8447-44436d20abb8" />
+-
+Plot <img width="604" height="604" alt="regression for data_flat" src="https://github.com/user-attachments/assets/85cf3016-6ca2-4ffb-8447-44436d20abb8" />
 
 logistic_reg$family$linkinv(pred_link$fit)
 1 

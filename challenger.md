@@ -15,10 +15,13 @@ To ensure a consistent and valid comparison, I recommend removing all observatio
 
 In addition, there is an invalid date ("7/2903/85") that should be removed.
 
+Before starting the analysis, it is important to mention that the dataset is quite small. After removing the observations that do not match the correct pressure level, only 12–13 valid data points remain. Because of this, the conclusions should be interpreted with caution. The focus here is to compare the studies, but a larger dataset would be needed to perform a deeper and more reliable analysis.
+
 b) Plot
 -
 A new plot showing the ratio Malfunction/Count as a function of Temperature should be generated using the cleaned dataset.
-[Temperture_filter_data.pdf](https://github.com/user-attachments/files/23916902/Temperture_filter_data.pdf)
+<img width="604" height="604" alt="Temperture_filter_data" src="https://github.com/user-attachments/assets/ff41aa27-7575-4978-93bc-775c63c87f4f" />
+
 
 c) Updated model
 -
@@ -58,9 +61,27 @@ The new estimated parameters are:
 
 d) Predicting failure probability
 -
-New plot: [Predicting failure probability_filter_data.pdf](https://github.com/user-attachments/files/23917376/Predicting.failure.probability_filter_data.pdf)
+New plot: <img width="604" height="604" alt="Predicting failure probability_filter_datA" src="https://github.com/user-attachments/assets/76bccd2c-1e24-40fd-81a2-ddfc66df1d4c" />
 
 If we compare the new plot with the old plot, we can see that the updated model has a curve with a smaller slope. This means that the effect of temperature on the failure becomes weaker after cleaning the data. This change is expected because the original dataset included observations with different pressure levels. When we keep only the data with Pressure = 200, the model shows a more accurate and smoother effect of temperature.
 
 e) Confidence on the prediction
--
+- Plot <img width="604" height="604" alt="regression for data_flat" src="https://github.com/user-attachments/assets/85cf3016-6ca2-4ffb-8447-44436d20abb8" />
+
+logistic_reg$family$linkinv(pred_link$fit)
+# 1 
+# 0.7595098 
+
+I obtain 0.7595 for the estimated failure probability at 30°.
+
+critval = 1.96    
+logistic_reg$family$linkinv(c(pred_link$fit - critval * pred_link$se.fit,
+                              pred_link$fit + critval * pred_link$se.fit))
+#        1         1 
+# 0.1189587 0.9866436 
+
+
+
+With this values we can say that with 95% confidence interval for our estimation is thus [0.119,0.986].
+
+

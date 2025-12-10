@@ -80,32 +80,32 @@ Name of the doc: test parallelQuicksort.py
 
 3) I process the code in Ubuntu because in python it doesnt function if i work with windows. 
 
-sofic@Sofia:/mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master$ cd /mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master
-sofic@Sofia:/mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master$ python3 "test parallelQuicksort.py"
-Sequential quicksort took: 0.077588 sec.
-Parallel quicksort took: 0.141773 sec.
-Built-in quicksort took: 0.043563 sec.
+     sofic@Sofia:/mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master$ cd /mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master
+     sofic@Sofia:/mnt/c/Users/sofic/OneDrive/Documentos/M2R-ParallelQuicksort/M2R-ParallelQuicksort-master$ python3 "test parallelQuicksort.py"
+          Sequential quicksort took: 0.077588 sec.
+          Parallel quicksort took: 0.141773 sec.
+          Built-in quicksort took: 0.043563 sec.
 
 4) At that moment I recognize that each value has text and number so it will be a problem when I will try to graph so I modify the code in order to only have the numbers.
-import subprocess
-x = 0
-matrix_register = []
-
-while x < 3000000:
-    result = subprocess.run(
-        ["./src/parallelQuicksort", str(x)], 
-        capture_output = True,
-        text = True
-        )
-    lines = result.stdout.splitlines()
-    sequential_time = float(lines[0].split()[3]) #i ONLY save the numeric part from the variable  
-    parallel_time   = float(lines[1].split()[3])
-    builtin_time    = float(lines[2].split()[3])
-
-    matrix_register.append([x, sequential_time, parallel_time, builtin_time])
-    x = x + 300000
-
-print (matrix_register[2]) 
+          import subprocess
+          x = 0
+          matrix_register = []
+          
+          while x < 3000000:
+              result = subprocess.run(
+                  ["./src/parallelQuicksort", str(x)], 
+                  capture_output = True,
+                  text = True
+                  )
+              lines = result.stdout.splitlines()
+              sequential_time = float(lines[0].split()[3]) #i ONLY save the numeric part from the variable  
+              parallel_time   = float(lines[1].split()[3])
+              builtin_time    = float(lines[2].split()[3])
+          
+              matrix_register.append([x, sequential_time, parallel_time, builtin_time])
+              x = x + 300000
+          
+          print (matrix_register[2]) 
 
 5) Procedure with export the information:
 python3 "Test parallelQuicksort.py"
@@ -133,51 +133,51 @@ Seen this graph we can say that is not something stable, but we can say that sec
 <img width="800" height="500" alt="corrida_5" src="https://github.com/user-attachments/assets/2638bef2-9bd9-4215-bf6f-2522a3d22f92" />
 
 8) Until now the code only print the information of the 5 runs but it isn't stored so it is necesary to add inside the for the following sentences:
- all_run = []    # in order to declarate the matrix
-for run in range(1,6):
-    data = matrix_quicksort()
-    all_run.append(data)   #in order to stored the 3 values generated in each run
+          all_run = []    # in order to declarate the matrix
+          for run in range(1,6):
+              data = matrix_quicksort()
+              all_run.append(data)   #in order to stored the 3 values generated in each run
 
 This is with the idea of generate a media between the 5 values and then plot it. So que add this to the code: 
 
-import numpy as np
-media_seq = []
-
-for i in range(10):  #10 because of the increment 300.000 and <3.000.000
-    values_seq = np.array([all_run[r][i][1] for r in range(5)])   #5 the number of runs
-    media_seq = np.mean(valores_seq) 
-    medias_seq.append(media_seq)  
-
-For graph: 
-for i in range(10):  #10 because of the increment 300.000 and <3.000.000
-    values_seq = np.array([all_run[r][i][1] for r in range(5)])   #5 the number of runs
-    prom_seq = np.mean(values_seq) 
-    media_seq.append(prom_seq)  
-    
-    values_par = np.array([all_run[r][i][2] for r in range(5)])  
-    prom_par = np.mean(values_par) 
-    media_par.append(prom_par)  
-
-    values_built = np.array([all_run[r][i][3] for r in range(5)])   
-    prom_built = np.mean(values_built) 
-    media_built.append(prom_built)  
-
-#graph media
-sizes = [row[0] for row in all_run[0]]        
-
-plt.figure(figsize=(8,5))
-plt.plot(sizes, media_seq, color="red", marker="o", label="Sequential")
-plt.plot(sizes, media_par, color="green", marker="*", label="Parallel")
-plt.plot(sizes,media_built, color="blue", marker="+", label="Built-in")
-
-plt.xlabel("Array size")
-plt.ylabel("Time")
-plt.title("Comparison of Quicksort times")
-plt.grid(True)                      #grid 
-plt.legend(loc='upper right')       #legend
-plt.tight_layout()
-plt.savefig("test_media.png")
-plt.close()
+          import numpy as np
+          media_seq = []
+          
+          for i in range(10):  #10 because of the increment 300.000 and <3.000.000
+              values_seq = np.array([all_run[r][i][1] for r in range(5)])   #5 the number of runs
+              media_seq = np.mean(valores_seq) 
+              medias_seq.append(media_seq)  
+          
+          For graph: 
+          for i in range(10):  #10 because of the increment 300.000 and <3.000.000
+              values_seq = np.array([all_run[r][i][1] for r in range(5)])   #5 the number of runs
+              prom_seq = np.mean(values_seq) 
+              media_seq.append(prom_seq)  
+              
+              values_par = np.array([all_run[r][i][2] for r in range(5)])  
+              prom_par = np.mean(values_par) 
+              media_par.append(prom_par)  
+          
+              values_built = np.array([all_run[r][i][3] for r in range(5)])   
+              prom_built = np.mean(values_built) 
+              media_built.append(prom_built)  
+          
+          #graph media
+          sizes = [row[0] for row in all_run[0]]        
+          
+          plt.figure(figsize=(8,5))
+          plt.plot(sizes, media_seq, color="red", marker="o", label="Sequential")
+          plt.plot(sizes, media_par, color="green", marker="*", label="Parallel")
+          plt.plot(sizes,media_built, color="blue", marker="+", label="Built-in")
+          
+          plt.xlabel("Array size")
+          plt.ylabel("Time")
+          plt.title("Comparison of Quicksort times")
+          plt.grid(True)                      #grid 
+          plt.legend(loc='upper right')       #legend
+          plt.tight_layout()
+          plt.savefig("test_media.png")
+          plt.close()
 
 *The graph of the media with 5 iterations:
 

@@ -199,4 +199,23 @@ Conclusion:
 -  The sequential implementation performs better than the parallel one for datasets smaller than 600,000 elements. Beyond this point, the parallel algorithm becomes faster, while the sequential version’s runtime increases more sharply.
 
 
+Replace t-student for gaussian distribution.
+-
+First, we are going to check whether the behavior of the data can be approximated by a Gaussian distribution. For this reason, we start by plotting a histogram. After that, we will show the same graphs as before, but this time adding a dispersion plot in order to better understand the shape and width of the confidence intervals.
+
+Histogram
+-
+For this case we are going to prove that the distribution is normal for 3 different array size: 300.000, 1.500.000 and
+
+<img width="700" height="400" alt="hist_seq_size_i" src="https://github.com/user-attachments/assets/423e594e-0215-4c19-ac5b-cab341d1cfa2" />
+<img width="700" height="400" alt="hist_seq_size_i" src="https://github.com/user-attachments/assets/769dc132-c833-4d1b-9f4a-3dbc132fabe8" />
+
+
+Dispersion graph
+-
+
+
+
+
+
 

@@ -7,4 +7,3 @@
 | **Citations impact** | Very high and highly influential | Extremely influential | Low or unclear impact | Very low impact | Highly influential foundational work | Highly influential | Very low impact | Very low impact | Very low impact | Unclear impact | Very low impact |
 | **Recency** | Published in 1998;classic in computer science | Published in 2017; still widely used | Not specified | Published in 2022 | Published in 1986; foundational work | Published in 2003 | Published in 2022 | Not recent | Published in 2024 | Not recent | Published in 2013 |
 | **Additional notes** | — | Images are clear and helpful | Images are unclear | — | From 1986 to 2012 it had 250–300 citations per year. After 2005, citations increased to about 450 per year. Currently decreasing but still above 350 | It reached a peak of around 400 citations per year, but its relevance is now decreasing | — | — | — | - | — |
-

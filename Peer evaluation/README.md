@@ -2,7 +2,7 @@
 
 ## Repository structure
 - `/data_smoking.csv`: dataset used in the analysis
-- `scripts_smoking/`: R scripts for data processing and analysis
+- `Simpson_paradox.Rmd/`: R scripts for data processing and analysis
 - `report_Around_Simpson's_Paradox/`: analysis and visualizations
 
 ## How to run

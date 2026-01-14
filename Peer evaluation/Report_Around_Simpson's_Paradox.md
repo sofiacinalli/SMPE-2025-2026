@@ -40,9 +40,54 @@ Why is this result surprising? Can you explain this paradox? Similarly, you may 
 
 For this first question, we begin by reading the dataset and constructing a contingency table in order to analyze the total number of women who were alive or dead after the follow-up period, according to their smoking habits.
 
-The analysis was performed using R. The following code was used to load the data and compute the table:
+The analysis was performed using R. The following code was used to load the data and compute the mortality statistics:
 
-```r
-data <- read.csv("Subject6_smoking.csv")
+```{r}
+tab <- table(data$Smoker, data$Status)
+result <- data.frame(
+  alive = tab[, "Alive"],
+  dead  = tab[, "Dead"]
+)
 
-table(data$Smoker, data$Status)
+# Add mortality ratio
+result$ratio_dead_percentage <- round(100* result$dead / (result$dead + result$alive),1)
+result
+
+The table below shows the total number of women alive and dead, stratified by smoking status:
+<img width="1203" height="148" alt="image" src="https://github.com/user-attachments/assets/c68f9333-6ebd-4d83-9d84-b2fd3bc23291" />
+
+The following graph shows the mortality rate together with the corresponding 95% confidence intervals for each group:
+<img width="836" height="524" alt="image" src="https://github.com/user-attachments/assets/def41de7-6605-4288-a999-dd9cc33e0ac7" />
+
+Looking at this previos results, they show a higher mortality rate among non-smokers than among smokers. This result may seem surprising,
+However, at this stage, we should be careful with this interpretation. Important factors such as age or other health conditions are not included yet. A deeper analysis is needed before making any conclusions.
+
+## Question 2: Investigate the effect of age.
+To do so we are going to create 4 cathegories as shown: 18-34 years, 34-54 years, 55-64 years, over 65 years.
+The following code it was created to do that in R:
+```{r}
+data$age_group <- NA
+
+data$age_group[data$Age >= 18 & data$Age <= 35] <- "18-35"
+data$age_group[data$Age > 35  & data$Age <= 54] <- "35-54"
+data$age_group[data$Age > 54  & data$Age <= 64] <- "55-64"
+data$age_group[data$Age >= 65] <- "65+"
+
+table(data$age_group)
+```
+
+Now we are going to analyze the dead ratio for each group:
+
+Table from smoker people: 
+<img width="1176" height="180" alt="image" src="https://github.com/user-attachments/assets/75bbe768-2cb6-4dcf-8046-837df6b78958" />
+
+Table from non smoker people:
+<img width="1163" height="183" alt="image" src="https://github.com/user-attachments/assets/00c37562-c899-4356-9fd1-760489004c65" />
+
+We also create a bar chart in order to see in a more clear way the results: 
+<img width="801" height="468" alt="image" src="https://github.com/user-attachments/assets/69b02a55-45f4-4caf-909f-09ca9614ddbe" />
+
+When the data are analyzed by age group, smokers show a higher mortality rate than non-smokers in each age category. However, when all ages are combined, the overall result suggests the opposite. This change in the relationship after stratifying by age illustrates Simpson’s paradox, where a hidden variable (age) strongly influences the observed outcome.
+
+
+

@@ -30,12 +30,6 @@ Why is this result surprising? Can you explain this paradox? Similarly, you may 
 
 3. In order to avoid a bias induced by arbitrary and non-regular age groupings, it is possible to try to perform a logistic regression. If we introduce a Death variable of 1 or 0 to indicate whether the individual died during the 20-year period, we can study the Death ~ Age model to study the probability of death as a function of age according to whether one considers the group of smokers or non-smokers. Do these regressions allow you to conclude or not on the harmfulness of smoking? You will be able to propose a graphical representation of these regressions (without omitting the regions of confidence).
 
-## Objectives
-- Compute overall mortality rates by smoking status
-- Investigate the effect of age as a confounding variable
-- Illustrate Simpson's Paradox through stratified analysis
-- Use logistic regression to model mortality as a function of age and smoking status
-
 ## Question 1: Overall mortality rates by smoking status
 
 For this first question, we begin by reading the dataset and constructing a contingency table in order to analyze the total number of women who were alive or dead after the follow-up period, according to their smoking habits.
@@ -90,5 +84,11 @@ We also create a bar chart in order to see in a more clear way the results:
 
 When the data are analyzed by age group, smokers show a higher mortality rate than non-smokers in each age category. However, when all ages are combined, the overall result suggests the opposite. This change in the relationship after stratifying by age illustrates Simpson’s paradox, where a hidden variable (age) strongly influences the observed outcome.
 
+## Question 3: - Use logistic regression to model mortality as a function of age and smoking status.
 
+The following graph shows Logistic regression of the Probability of Death as a function of Age (95% CI)
+
+<img width="827" height="518" alt="image" src="https://github.com/user-attachments/assets/bab56ede-e62c-4371-be1e-52fc9fccfd92" />
+
+What this graph shows is that the probability of death increases with age for both smokers and non-smokers. For a given age, smokers have a higher probability of death than non-smokers. This indicates that age is a strong confounding variable and explains the paradox observed in the aggregated analysis. By using age as a continuous variable, the model avoids arbitrary age groups and provides clearer evidence of the harmful effect of smoking.
 

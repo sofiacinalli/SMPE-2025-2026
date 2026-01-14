@@ -1,7 +1,7 @@
 # Subject 6: Around Simpson's Paradox
 
 ## Repository structure
-- `/[data_smoking.csv](https://github.com/sofiacinalli/SMPE-2025-2026/blob/main/Peer%20evaluation/%20data_smoking.csv)/`: dataset used in the analysis
+- `/data_smoking.csv`: dataset used in the analysis
 - `scripts_smoking/`: R scripts for data processing and analysis
 - `report_Around_Simpson's_Paradox/`: analysis and visualizations
 

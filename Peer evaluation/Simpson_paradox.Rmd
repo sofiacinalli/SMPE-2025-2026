@@ -1,0 +1,257 @@
+---
+title: "Simpson Paradox"
+output: html_notebook
+---
+
+In this work, we are going to analyze the results of a survey conducted in Whickham
+
+First step read the dataset
+```{r}
+data <- read.csv("Subject6_smoking.csv")
+```
+## Question 1: Overall mortality rates by smoking status
+
+To create the a table with the information of people alive, dead and the ratio of dead 
+```{r}
+tab <- table(data$Smoker, data$Status)
+
+result <- data.frame(
+  alive = tab[, "Alive"],
+  dead  = tab[, "Dead"]
+)
+
+# Mortality rate (%)
+result$ratio_dead <- round(100 * result$dead / (result$dead + result$alive), 1)
+
+result
+```
+
+Estimated proportion
+```{r}
+result$p_dead <- result$dead / (result$dead + result$alive)
+
+# Standard error (normal approximation)
+result$se <- sqrt(
+  result$p_dead * (1 - result$p_dead) /
+  (result$dead + result$alive)
+)
+result
+```
+
+Confidence interval 95%
+```{r}
+result$ci_lower <- result$p_dead - 1.96 * result$se
+result$ci_upper <- result$p_dead + 1.96 * result$se
+
+# Convert CI to percentage for plotting
+result$ci_lower_pct <- 100 * result$ci_lower
+result$ci_upper_pct <- 100 * result$ci_upper
+
+result
+```
+
+Plot the results
+```{r}
+x <- c(1, 1.2)
+
+y <- result$ratio_dead
+
+plot(
+  x, y,
+  xaxt = "n",
+  xlab = "Smoking status",
+  ylab = "Mortality rate (%)",
+  main = "Mortality rate by smoking status (95% CI)",
+  pch = 19,
+  cex = 1.3,
+  ylim = c(
+    min(result$ci_lower_pct) - 2,
+    max(result$ci_upper_pct) + 2
+  )
+)
+
+axis(1, at = x, labels = rownames(result))
+
+arrows(
+  x0 = x, y0 = result$ci_lower_pct,
+  x1 = x, y1 = result$ci_upper_pct,
+  angle = 90, code = 3, length = 0.05, lwd = 1.5
+)
+```
+#Question 2: 
+
+Create age range:
+```{r}
+data$age_group <- NA
+
+data$age_group[data$Age >= 18 & data$Age <= 35] <- "18-35"
+data$age_group[data$Age > 35  & data$Age <= 54] <- "35-54"
+data$age_group[data$Age > 54  & data$Age <= 64] <- "55-64"
+data$age_group[data$Age >= 65] <- "65+"
+
+table(data$age_group)
+```
+
+Table that combines if the people are still alive or not vs age range TABLE smokers
+```{r}
+tab_yes <- table(
+  data$age_group[data$Smoker == "Yes"],
+  data$Status[data$Smoker == "Yes"]
+)
+
+table_smokers <- data.frame(
+  edad = rownames(tab_yes),
+  vive = tab_yes[, "Alive"],
+  no_vive = tab_yes[, "Dead"]
+)
+
+table_smokers$ratio_dead <- round(
+  100 * table_smokers$no_vive / (table_smokers$vive + table_smokers$no_vive),
+  1
+)
+
+table_smokers
+```
+
+Table no smokers
+```{r}
+tab_no <- table(
+  data$age_group[data$Smoker == "No"],
+  data$Status[data$Smoker == "No"]
+)
+
+table_nonsmokers <- data.frame(
+  edad = rownames(tab_no),
+  vive = tab_no[, "Alive"],
+  no_vive = tab_no[, "Dead"]
+)
+
+table_nonsmokers$ratio_dead <- round(
+  100 * table_nonsmokers$no_vive / (table_nonsmokers$vive + table_nonsmokers$no_vive),
+  1
+)
+
+table_nonsmokers
+```
+
+Bar graph to compare ratio_dead 
+```{r}
+
+age_order <- c("18-35", "35-54", "55-64", "65+")
+
+# Reorder rows to match age_order
+smk <- table_smokers[match(age_order, table_smokers$edad), ]
+nsmk <- table_nonsmokers[match(age_order, table_nonsmokers$edad), ]
+
+# Create the matrix of dead ratios (%)
+ratio_mat <- cbind(
+  `Non-smokers` = nsmk$ratio_dead,
+  `Smokers`     = smk$ratio_dead
+)
+
+rownames(ratio_mat) <- age_order
+
+ratio_mat
+```
+
+```{r}
+# Colors for age groups (same color for smokers and non-smokers)
+age_colors <- c("darkgreen", "goldenrod", "orange", "red")
+
+bp <- barplot(
+  height = ratio_mat,
+  beside = TRUE,                 # grouped bars
+  col = age_colors,
+  ylim = c(0, max(ratio_mat) + 5),
+  ylab = "Mortality rate (%)",
+  main = "Mortality rate by smoking status and age group",
+  space = c(0.2, 1)
+)
+
+text(
+  x = bp,
+  y = ratio_mat,
+  labels = paste0(ratio_mat, "%"),
+  pos = 1,        # inside the bar
+  cex = 1
+)
+legend(
+  "topleft",
+  legend = rownames(ratio_mat),
+  fill = age_colors,
+  title = "Age group",
+  bty = "n"
+)
+
+```
+
+Create binary outcome: Death (1 = Dead, 0 = Alive)
+```{r}
+data$Death <- ifelse(data$Status == "Dead", 1, 0)
+
+model_nonsmokers <- glm(
+  Death ~ Age,
+  data = data[data$Smoker == "No", ],
+  family = binomial
+)
+
+model_smokers <- glm(
+  Death ~ Age,
+  data = data[data$Smoker == "Yes", ],
+  family = binomial
+)
+
+age_seq <- seq(min(data$Age, na.rm = TRUE), max(data$Age, na.rm = TRUE), by = 1)
+
+pred_no <- predict(
+  model_nonsmokers,
+  newdata = data.frame(Age = age_seq),
+  type = "link",
+  se.fit = TRUE
+)
+
+pred_yes <- predict(
+  model_smokers,
+  newdata = data.frame(Age = age_seq),
+  type = "link",
+  se.fit = TRUE
+)
+
+# Convert from log-odds to probability
+prob_no   <- plogis(pred_no$fit)
+lower_no  <- plogis(pred_no$fit - 1.96 * pred_no$se.fit)
+upper_no  <- plogis(pred_no$fit + 1.96 * pred_no$se.fit)
+
+prob_yes  <- plogis(pred_yes$fit)
+lower_yes <- plogis(pred_yes$fit - 1.96 * pred_yes$se.fit)
+upper_yes <- plogis(pred_yes$fit + 1.96 * pred_yes$se.fit)
+
+plot(
+  age_seq, prob_no,
+  type = "l",
+  lwd = 2,
+  col = "blue",
+  ylim = c(0, 1),
+  xlab = "Age",
+  ylab = "Probability of death",
+  main = "Logistic regression: Probability of Death as a function of Age (95% CI)"
+)
+
+# CI for non-smokers
+lines(age_seq, lower_no, col = "blue", lty = 2)
+lines(age_seq, upper_no, col = "blue", lty = 2)
+
+# Smokers curve + CI
+lines(age_seq, prob_yes, col = "red", lwd = 2)
+lines(age_seq, lower_yes, col = "red", lty = 2)
+lines(age_seq, upper_yes, col = "red", lty = 2)
+
+legend(
+  "topleft",
+  legend = c("Non-smokers", "Smokers"),
+  col = c("blue", "red"),
+  lwd = 2,
+  bty = "n"
+)
+
+```

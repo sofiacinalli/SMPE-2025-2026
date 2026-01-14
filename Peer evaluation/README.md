@@ -1,9 +1,9 @@
 # Subject 6: Around Simpson's Paradox
 
 ## Repository structure
-- `data/`: dataset used in the analysis
-- `scripts/`: R scripts for data processing and analysis
-- `report/`: analysis and visualizations
+- `/data_smoking.csv/`: dataset used in the analysis
+- `scripts_smoking/`: R scripts for data processing and analysis
+- `report_Around_Simpson's_Paradox/`: analysis and visualizations
 
 ## How to run
 1. Clone this repository

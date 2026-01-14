@@ -48,6 +48,7 @@ result <- data.frame(
   alive = tab[, "Alive"],
   dead  = tab[, "Dead"]
 )
+```
 
 # Add mortality ratio
 result$ratio_dead_percentage <- round(100* result$dead / (result$dead + result$alive),1)

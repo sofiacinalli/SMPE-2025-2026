@@ -2,7 +2,7 @@
 
 Some notes of the class: 
 **If you are the reader:**
-  1. Analyze the data, pay attention to who is doing the analysis. (sometimes they are talking to s
+  1. Analyze the data, pay attention to who is doing the analysis.  
   2. If you can access to the information then look at it, try to analyze in another way.
   3. Pay attention to the context. perhaps they are traing to force some interpretation.
 **If you are doing the graph:**

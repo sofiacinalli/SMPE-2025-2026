@@ -5,6 +5,7 @@ Some notes of the class:
   1. Analyze the data, pay attention to who is doing the analysis.  
   2. If you can access to the information then look at it, try to analyze in another way.
   3. Pay attention to the context. perhaps they are traing to force some interpretation.
+     
 **If you are doing the graph:**
   1. pay attention to who is going to read it. Is not the same information or the same references that you can use when it is for people that are into the subject that you are talking to than those ones that are not into.
   2. put the information in order

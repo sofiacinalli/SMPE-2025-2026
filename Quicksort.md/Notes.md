@@ -205,20 +205,35 @@ Conclusion:
 
 Replace t-student for gaussian distribution.
 -
-First, we are going to check whether the behavior of the data can be approximated by a Gaussian distribution. For this reason, we start by plotting a histogram. After that, we will show the same graphs as before, but this time adding a dispersion plot in order to better understand the shape and width of the confidence intervals.
+As the number of observations is relatively high (R = 30 runs per configuration), we rely on the Central Limit Theorem to approximate the sampling distribution of the mean by a Gaussian distribution. This allows us to compute confidence intervals using the normal distribution and to analyze the variability of the measured execution times.
 
-Histogram
--
-For this case we are going to prove that the distribution is normal for 3 different array size: 300.000, 1.500.000 and
+In the following, we reproduce some representative plots to further analysis:
 
-<img width="700" height="400" alt="hist_seq_size_i" src="https://github.com/user-attachments/assets/423e594e-0215-4c19-ac5b-cab341d1cfa2" />
-<img width="700" height="400" alt="hist_seq_size_i" src="https://github.com/user-attachments/assets/769dc132-c833-4d1b-9f4a-3dbc132fabe8" />
+## Figure – Dispersion of runtimes across 30 runs
+<img width="900" height="500" alt="scatter_dispersion" src="https://github.com/user-attachments/assets/98b2305c-ae36-444e-823d-1999bc917ae8" />
+This figure shows all individual execution times for each input size and for each implementation (sequential, parallel, built-in). 
+Most points are concentrated in a narrow range, indicating a relatively stable typical runtime for a given input size. However, a few isolated points with much larger execution times can be observed, which suggests the presence of noise and outliers affecting some runs. This dispersion explains the uncertainty observed in the estimation of the mean runtimes.
 
+## Figure – Mean ± 95% confidence interval (Gaussian Z)
+<img width="900" height="500" alt="test_media_ci95_Z" src="https://github.com/user-attachments/assets/41e2aa22-ea79-48b8-b126-d8b8794ba7b5" />
+This plot shows the mean execution time together with the 95% confidence intervals computed using the Gaussian approximation. The error bars represent the uncertainty of the estimated mean due to the variability observed across the 30 runs.
 
-Dispersion graph
--
+## Linear Regression Analysis
 
+To further analyze the relationship between input size and execution time, a linear regression model was fitted to all individual runtime measurements for each implementation.
 
+## Figures – Linear regression with scatter of real measurements
+<img width="800" height="500" alt="regression_sequential_scatter" src="https://github.com/user-attachments/assets/f4d7ff4c-7a92-4ab5-adf9-c80095d15b87" />
+<img width="800" height="500" alt="regression_parallel_scatter" src="https://github.com/user-attachments/assets/14f38c54-403b-420d-b04b-fa6cb642b950" />
+<img width="800" height="500" alt="regression_builtin_scatter" src="https://github.com/user-attachments/assets/d2bbb8ce-8c7b-4836-84df-249b153c8692" />
+
+Each figure shows:
+
+the scatter of all measured execution times (across all runs and input sizes),
+the fitted linear model representing the average trend of execution time as a function of the array size.
+
+These plots provide a visual assessment of how well a simple linear model approximates the observed behavior in the tested range and how much dispersion remains around the fitted trend. The reported 𝑅2. 
+R2 values quantify how much of the variability in the execution times is explained by the linear dependence on the input size.
 
 
 

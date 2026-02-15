@@ -46,7 +46,7 @@ The project illustrates Simpson’s Paradox using descriptive statistics, strati
 
 **Link:** https://github.com/sofiacinalli/SMPE-2025-2026/tree/main/Peer%20evaluation
 
-
+---
 
 ### Read papers:
 Comparison and analysis of selected research papers.

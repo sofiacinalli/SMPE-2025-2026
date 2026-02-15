@@ -19,7 +19,7 @@ This section contains personal notes of all videos watched in the MOOC
 
 ### Challenger (Mooc - excercise 5, module 2)
 Completion of exercise 5 of module 2 (Challenger).
-**Link:** Challenger
+**Link:** https://github.com/sofiacinalli/SMPE-2025-2026/tree/main/Challenger
 
 ### Mooc Excercise 7
 Reproduction of an Rstudio Code 
@@ -28,8 +28,10 @@ Reproduction of an Rstudio Code
 ##  MOOC Peer evaluated project - Simpson's Paradox
 This repository contains the analysis of the Whickham survey data, focusing on the relationship between smoking, age, and mortality.
 The project illustrates Simpson’s Paradox using descriptive statistics, stratified analysis by age, and logistic regression.
+#
 **Link:** Peer evaluation
 
 ## Read papers:
 Comparison and analysis of selected research papers.
+#
 **Link:** Read_papers.md

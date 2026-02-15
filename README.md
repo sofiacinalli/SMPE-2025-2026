@@ -5,14 +5,13 @@ This repository contains notes, excercices and projects related to the hole SMPE
 
 ## Repository structure:
 
----
 
 ### Parallel Quicksort project: 
 Project that started as a group assignment and later extended by applying the concepts lerned during the course (confidence intervals, continuoys tend, exploration) 
 
 **Link:** https://github.com/sofiacinalli/SMPE-2025-2026/tree/main/Quicksort.md
 
-
+---
 
 ### Good graphs
 Critical analysisis of 3 figures of Jean-Marc’s slides by applying the checklist for good graphics for 3 figures

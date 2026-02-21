@@ -101,12 +101,12 @@ tab_yes <- table(
 
 table_smokers <- data.frame(
   edad = rownames(tab_yes),
-  vive = tab_yes[, "Alive"],
-  no_vive = tab_yes[, "Dead"]
+  alive = tab_yes[, "Alive"],
+  no_alive = tab_yes[, "Dead"]
 )
 
 table_smokers$ratio_dead <- round(
-  100 * table_smokers$no_vive / (table_smokers$vive + table_smokers$no_vive),
+  100 * table_smokers$no_alive / (table_smokers$alive + table_smokers$no_alive),
   1
 )
 
@@ -122,12 +122,12 @@ tab_no <- table(
 
 table_nonsmokers <- data.frame(
   edad = rownames(tab_no),
-  vive = tab_no[, "Alive"],
-  no_vive = tab_no[, "Dead"]
+  alive = tab_no[, "Alive"],
+  no_alive = tab_no[, "Dead"]
 )
 
 table_nonsmokers$ratio_dead <- round(
-  100 * table_nonsmokers$no_vive / (table_nonsmokers$vive + table_nonsmokers$no_vive),
+  100 * table_nonsmokers$no_alive / (table_nonsmokers$alive + table_nonsmokers$no_alive),
   1
 )
 
@@ -253,5 +253,6 @@ legend(
   lwd = 2,
   bty = "n"
 )
+
 
 ```

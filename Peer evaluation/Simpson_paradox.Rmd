@@ -134,7 +134,7 @@ table_nonsmokers$ratio_dead <- round(
 table_nonsmokers
 ```
 
-Bar graph to compare ratio_dead 
+Table for graph to compare ratio_dead 
 ```{r}
 
 age_order <- c("18-35", "35-54", "55-64", "65+")
@@ -153,7 +153,7 @@ rownames(ratio_mat) <- age_order
 
 ratio_mat
 ```
-
+Bar graph 
 ```{r}
 # Colors for age groups (same color for smokers and non-smokers)
 age_colors <- c("darkgreen", "goldenrod", "orange", "red")
@@ -253,6 +253,5 @@ legend(
   lwd = 2,
   bty = "n"
 )
-
 
 ```

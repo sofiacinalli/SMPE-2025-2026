@@ -6,14 +6,14 @@ This repository contains notes, excercises and projects related to the whole SMP
 ## Repository structure:
 
 ### Parallel Quicksort project: 
-Project that started as a group assignment and later extended by applying the concepts lerned during the course (confidence intervals, continuoys tend, exploration) 
+Project that started as a group assignment and later extended by applying the concepts lerned during the course (confidence intervals, continuous tend, exploration) 
 
 **Link:** https://github.com/sofiacinalli/SMPE-2025-2026/tree/main/Quicksort.md
 
 ---
 
 ### Good graphs
-Critical analysis of 3 figures of Jean-Marc’s slides by applying the checklist for good graphics for 3 figures
+Critical analysis of 3 figures of Jean-Marc’s slides by applying the checklist for good graphics 
 
 **Link:** https://github.com/sofiacinalli/SMPE-2025-2026/blob/main/Good_Graphs.md
 

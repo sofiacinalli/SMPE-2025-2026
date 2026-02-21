@@ -20,6 +20,7 @@ For each individual, the following variables are available:
 
 ## Tools
 - **R** (RStudio)
+All computations and plots are generated using R. The full code is available in the notebook. ( https://github.com/sofiacinalli/SMPE-2025-2026/blob/5ae1d9e55d877d601323327409feb0960dd98d36/Peer%20evaluation/Simpson_paradox.Rmd )
 
 ## Objectives:
 The objective of this project is to do the following questions: 
@@ -34,7 +35,23 @@ Why is this result surprising? Can you explain this paradox? Similarly, you may 
 
 For this first question, we begin by reading the dataset and constructing a contingency table in order to analyze the total number of women who were alive or dead after the follow-up period, according to their smoking habits.
 
-The mortality rate is computed as the ratio of the number of deaths to the total number of individuals in each group.
+We start by computing the overall mortality rates by smoking status in order to obtain a first, aggregated view of the relationship between smoking and mortality.
+
+This first analysis provides an aggregated and descriptive view of the data. At this stage, no confounding variables (such as age) are taken into account, so the results must be interpreted with caution.
+
+</>
+data <- read.csv("Subject6_smoking.csv")
+
+tab <- table(data$Smoker, data$Status)
+
+result <- data.frame(
+  alive = tab[, "Alive"],
+  dead  = tab[, "Dead"]
+)
+
+result$ratio_dead <- round(100 * result$dead / (result$dead + result$alive), 1)
+result
+
 
 The table below shows the total number of women alive and dead, stratified by smoking status:
 <img width="1203" height="148" alt="image" src="https://github.com/user-attachments/assets/c68f9333-6ebd-4d83-9d84-b2fd3bc23291" />

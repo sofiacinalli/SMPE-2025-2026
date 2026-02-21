@@ -75,19 +75,72 @@ The following plot shows the mortality rate together with the corresponding 95% 
 <img width="836" height="524" alt="image" src="https://github.com/user-attachments/assets/def41de7-6605-4288-a999-dd9cc33e0ac7" />
 
 ### Interpretation
-Looking at this previos results, they show a higher mortality rate among non-smokers than among smokers. This result may seem surprising,
+Looking at this previos results, they show a higher mortality rate among non-smokers than among smokers. This result may seem surprising.
 However, at this stage, we should be careful with this interpretation. Important factors such as age or other health conditions are not included yet. A deeper analysis is needed before making any conclusions.
 
 ## Question 2: Investigate the effect of age.
-To do so we are going to create 4 cathegories as shown: 18-34 years, 34-54 years, 55-64 years, over 65 years.
-. The following age categories are considered:
-
+To study the role of age, we create 4 cathegories as shown:
 - 18–34 years
 - 34–54 years
 - 55–64 years
 - 65 years and older
 
+This stratification allows us to control for age in a simple way and to observe how mortality rates vary within each age group.
+
+```{r}
+data$age_group <- NA
+
+data$age_group[data$Age >= 18 & data$Age <= 35] <- "18-35"
+data$age_group[data$Age > 35  & data$Age <= 54] <- "35-54"
+data$age_group[data$Age > 54  & data$Age <= 64] <- "55-64"
+data$age_group[data$Age >= 65] <- "65+"
+
+table(data$age_group)
+```
+
 After creating these age groups, mortality rates are computed separately for smokers and non-smokers within each age category.
+
+Table that combines if the people are still alive or not vs age range TABLE smokers
+```{r}
+tab_yes <- table(
+  data$age_group[data$Smoker == "Yes"],
+  data$Status[data$Smoker == "Yes"]
+)
+
+table_smokers <- data.frame(
+  edad = rownames(tab_yes),
+  vive = tab_yes[, "Alive"],
+  no_vive = tab_yes[, "Dead"]
+)
+
+table_smokers$ratio_dead <- round(
+  100 * table_smokers$no_vive / (table_smokers$vive + table_smokers$no_vive),
+  1
+)
+
+table_smokers
+```
+
+Table no smokers
+```{r}
+tab_no <- table(
+  data$age_group[data$Smoker == "No"],
+  data$Status[data$Smoker == "No"]
+)
+
+table_nonsmokers <- data.frame(
+  edad = rownames(tab_no),
+  vive = tab_no[, "Alive"],
+  no_vive = tab_no[, "Dead"]
+)
+
+table_nonsmokers$ratio_dead <- round(
+  100 * table_nonsmokers$no_vive / (table_nonsmokers$vive + table_nonsmokers$no_vive),
+  1
+)
+
+table_nonsmokers
+```
 
 Now we are going to analyze the dead ratio for each group:
 <img width="1176" height="180" alt="image" src="https://github.com/user-attachments/assets/75bbe768-2cb6-4dcf-8046-837df6b78958" />

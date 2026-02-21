@@ -39,7 +39,7 @@ We start by computing the overall mortality rates by smoking status in order to 
 
 This first analysis provides an aggregated and descriptive view of the data. At this stage, no confounding variables (such as age) are taken into account, so the results must be interpreted with caution.
 
-</>
+```r
 data <- read.csv("Subject6_smoking.csv")
 
 tab <- table(data$Smoker, data$Status)
@@ -51,7 +51,7 @@ result <- data.frame(
 
 result$ratio_dead <- round(100 * result$dead / (result$dead + result$alive), 1)
 result
-
+```
 
 The table below shows the total number of women alive and dead, stratified by smoking status:
 <img width="1203" height="148" alt="image" src="https://github.com/user-attachments/assets/c68f9333-6ebd-4d83-9d84-b2fd3bc23291" />

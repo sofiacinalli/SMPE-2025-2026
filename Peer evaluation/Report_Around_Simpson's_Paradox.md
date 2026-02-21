@@ -212,6 +212,9 @@ Linear Regression is used when the target variable is continuous. As the respons
 
 TThe objective of the logistic regression is not only to visualize the data, but to model the relationship between the response variable (death) and an explanatory variable (age), in order to describe how mortality risk evolves continuously with age and to quantify the influence of age on this risk. Compared to aggregated analyses or discretized age groups, this approach reduces methodological bias and allows a clearer interpretation of the relationship between smoking and mortality by explicitly controlling for age as a confounding variable. Separate models are fitted for smokers and non-smokers, and the resulting curves show the estimated probability of death as a function of age, together with 95% confidence intervals.
 
+### Implementation details:
+We first define a binary outcome variable (Death = 1 if the individual died during the follow-up, 0 otherwise). Then, we fit two separate logistic regression models, one for smokers and one for non-smokers, in order to compare how the probability of death evolves with age in each group. Finally, we compute predicted probabilities and 95% confidence intervals over the observed age range to visualize the estimated risk profiles.
+
 ```{r}
 data$Death <- ifelse(data$Status == "Dead", 1, 0)
 

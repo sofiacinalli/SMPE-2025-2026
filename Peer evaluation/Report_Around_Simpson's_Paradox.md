@@ -39,9 +39,7 @@ We start by computing the overall mortality rates by smoking status in order to 
 
 This first analysis provides an aggregated and descriptive view of the data. At this stage, no confounding variables (such as age) are taken into account, so the results must be interpreted with caution.
 
-```r
-data <- read.csv("Subject6_smoking.csv")
-
+```{r}
 tab <- table(data$Smoker, data$Status)
 
 result <- data.frame(
@@ -49,16 +47,34 @@ result <- data.frame(
   dead  = tab[, "Dead"]
 )
 
+# Mortality rate (%)
 result$ratio_dead <- round(100 * result$dead / (result$dead + result$alive), 1)
+
 result
 ```
 
-The table below shows the total number of women alive and dead, stratified by smoking status:
+The output of the previous code is the following table: with the number of women alive and dead, stratified by smoking status:
 <img width="1203" height="148" alt="image" src="https://github.com/user-attachments/assets/c68f9333-6ebd-4d83-9d84-b2fd3bc23291" />
 
-The following graph shows the mortality rate together with the corresponding 95% confidence intervals for each group:
+To quantify uncertainty, we compute 95% confidence intervals for the mortality rates. 
+This is justified because, for large sample sizes, the distribution of the estimated proportions can be approximated by a normal distribution according to the Central Limit Theorem. The standard errors are therefore used to quantify the uncertainty of the mortality rate estimates.
+
+```{r}
+result$ci_lower <- result$p_dead - 1.96 * result$se
+result$ci_upper <- result$p_dead + 1.96 * result$se
+
+# Convert CI to percentage for plotting
+result$ci_lower_pct <- 100 * result$ci_lower
+result$ci_upper_pct <- 100 * result$ci_upper
+
+result
+```
+
+The following plot shows the mortality rate together with the corresponding 95% confidence intervals for each group:
+
 <img width="836" height="524" alt="image" src="https://github.com/user-attachments/assets/def41de7-6605-4288-a999-dd9cc33e0ac7" />
 
+### Interpretation
 Looking at this previos results, they show a higher mortality rate among non-smokers than among smokers. This result may seem surprising,
 However, at this stage, we should be careful with this interpretation. Important factors such as age or other health conditions are not included yet. A deeper analysis is needed before making any conclusions.
 

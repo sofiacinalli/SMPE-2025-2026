@@ -17,6 +17,15 @@ The goal is to analyze execution times, variability across runs, confidence inte
 - **Code Quicksort.py**: Initial version of the Python script used in the first experiments (kept for reference).
 
 ---
+## Output
+
+The script produces several figures, including:
+- Comparison of mean execution times
+- Dispersion of runtimes across runs
+- Mean ± 95% confidence intervals
+- Linear regression with scatter of real measurements
+
+---
 
 ## How to Run the Experiments
 
@@ -26,13 +35,3 @@ The goal is to analyze execution times, variability across runs, confidence inte
 
 ```bash
 python3 Final_code_Quicksort.py
-
----
-
-## Output
-
-The script produces several figures, including:
-- Comparison of mean execution times
-- Dispersion of runtimes across runs
-- Mean ± 95% confidence intervals
-- Linear regression with scatter of real measurements

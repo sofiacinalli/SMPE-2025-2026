@@ -1,4 +1,4 @@
-# Parallel Quicksort – Experimental Analysis (SMPE 2025–2026)
+# Quicksort – Experimental Analysis (SMPE 2025–2026)
 
 This project studies and compares the performance of three sorting implementations:
 

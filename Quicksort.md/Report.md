@@ -210,31 +210,50 @@ As the number of observations is relatively high (R = 30 runs per configuration)
 In the following, we reproduce some representative plots to further analysis:
 
 ## Figure – Dispersion of runtimes across 30 runs
-<img width="900" height="500" alt="scatter_dispersion" src="https://github.com/user-attachments/assets/98b2305c-ae36-444e-823d-1999bc917ae8" />
+<img width="900" height="500" alt="scatter_dispersion" src="https://github.com/user-attachments/assets/d55d8cc4-0162-4fa4-9ca4-8e2852b7f5e9" />
+
 This figure shows all individual execution times for each input size and for each implementation (sequential, parallel, built-in). 
-Most points are concentrated in a narrow range, indicating a relatively stable typical runtime for a given input size. However, a few isolated points with much larger execution times can be observed, which suggests the presence of noise and outliers affecting some runs. This dispersion explains the uncertainty observed in the estimation of the mean runtimes.
+Most points are concentrated in a narrow range, indicating a relatively stable typical runtime for a given input size. However, a few isolated points with much larger execution times can be observed, which suggests the presence of noise which justifies the use of confidence intervals instead of relying on single measurements.
 
 ## Figure – Mean ± 95% confidence interval (Gaussian Z)
-<img width="900" height="500" alt="test_media_ci95_Z" src="https://github.com/user-attachments/assets/41e2aa22-ea79-48b8-b126-d8b8794ba7b5" />
-This plot shows the mean execution time together with the 95% confidence intervals computed using the Gaussian approximation. The error bars represent the uncertainty of the estimated mean due to the variability observed across the 30 runs.
+<img width="900" height="500" alt="test_media_ci95_Z" src="https://github.com/user-attachments/assets/46c7ba0b-8b9d-4207-92b1-fd0f5e7d197a" />
+
+This plot shows the mean execution time together with the 95% confidence intervals computed using the Gaussian approximation.
+The confidence intervals are relatively narrow compared to the mean values, which indicates that the estimates of the mean runtime are reasonably precise. The separation between the curves confirms the performance differences observed previously: the sequential version grows faster with the input size, while the parallel and built-in versions scale better.
 
 ## Linear Regression Analysis
 
 To further analyze the relationship between input size and execution time, a linear regression model was fitted to all individual runtime measurements for each implementation.
 
+The fitted slopes quantify how fast the execution time increases with the input size:
+
+- The sequential implementation shows the largest slope, which confirms its poorer scalability.
+- The parallel implementation has the smallest slope, indicating a slower growth of runtime with respect to the input size.
+- The built-in sort lies between the two, with good overall performance but slightly worse scaling than the parallel version.
+
+The high R² values (all above 0.96) indicate that, in the tested range of input sizes, a linear model provides a good approximation of the observed trend
+
 ## Figures – Linear regression with scatter of real measurements
-<img width="800" height="500" alt="regression_sequential_scatter" src="https://github.com/user-attachments/assets/f4d7ff4c-7a92-4ab5-adf9-c80095d15b87" />
-<img width="800" height="500" alt="regression_parallel_scatter" src="https://github.com/user-attachments/assets/14f38c54-403b-420d-b04b-fa6cb642b950" />
-<img width="800" height="500" alt="regression_builtin_scatter" src="https://github.com/user-attachments/assets/d2bbb8ce-8c7b-4836-84df-249b153c8692" />
+<img width="800" height="500" alt="regression_builtin_scatter" src="https://github.com/user-attachments/assets/8109b483-30fc-4f05-b41b-d1d5fb306bda" />
+<img width="800" height="500" alt="regression_sequential_scatter" src="https://github.com/user-attachments/assets/422f1dfc-5ef9-4d08-aa4d-3650f9b16fc2" />
+<img width="800" height="500" alt="regression_parallel_scatter" src="https://github.com/user-attachments/assets/ddc90eb2-c1cc-4b32-8bd8-bad3c38f0d70" />
 
-Each figure shows:
+Sequential QuickSort:
+  slope     = 2.843190e-07
+  intercept = -1.640997e-02
+  R^2       = 0.9726
 
-the scatter of all measured execution times (across all runs and input sizes),
-the fitted linear model representing the average trend of execution time as a function of the array size.
+Parallel QuickSort:
+  slope     = 1.969531e-07
+  intercept = 3.831673e-02
+  R^2       = 0.9694
 
-These plots provide a visual assessment of how well a simple linear model approximates the observed behavior in the tested range and how much dispersion remains around the fitted trend. The reported 𝑅2. 
-R2 values quantify how much of the variability in the execution times is explained by the linear dependence on the input size.
+Built-in sort:
+  slope     = 2.177388e-07
+  intercept = -1.372244e-02
+  R^2       = 0.9813
 
+## Conclusion:
+Overall, the experimental results show clear and consistent performance differences between the three implementations. The built-in sort is the fastest method for small to medium input sizes, benefiting from highly optimized low-level implementations. The parallel version introduces overhead for small arrays, which explains why it is slower than the sequential version in that regime. However, as the input size increases, the parallel algorithm scales better and eventually outperforms the sequential implementation.
 
-
-
+The confidence interval analysis confirms that these trends are stable across repeated runs, despite the presence of noise and occasional outliers. Finally, the linear regression results highlight that the parallel version has the lowest growth rate of execution time with respect to the input size, making it the most promising option for larger datasets in this experimental setting.

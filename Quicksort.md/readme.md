@@ -12,22 +12,24 @@ The goal is to analyze execution times, variability across runs, confidence inte
 
 ## Repository Structure
 
-The repository contains three main files:
-├── Final_code_Quicksort.py # Final experimental script (data collection, plots, CI, regression)
-├── Report.md # Final report with analysis, figures and conclusions
-└── Code Quicksort.py # Initial version of the Python script (first experiments)
+- **Final_code_Quicksort.py**: Python script containing the final experimental setup, data collection, confidence interval computation, and visualization of results.  
+- **Report.md**: Final report with methodology, figures, analysis of results, and conclusions.  
+- **Code Quicksort.py**: Initial version of the Python script used in the first experiments (kept for reference).
 
 ---
 
 ## How to Run the Experiments
 
-### Requirements
+- Clone this repository  
+- Make sure the executable `./src/parallelQuicksort` is compiled  
+- Run the final experiment script:
 
-- Linux / WSL (Ubuntu recommended)  
-- Python 3  
-- The compiled executable:
+```bash
+python3 Final_code_Quicksort.py
 
-Output
+---
+
+## Output
 
 The script produces several figures, including:
 - Comparison of mean execution times

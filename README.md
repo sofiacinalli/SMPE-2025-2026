@@ -1,11 +1,17 @@
 # SMPE
 This repository contains notes, excercises and projects related to the whole SMPE course throughout the semester. 
 
+## Recent updates
+
+- Added a README to the main folder to better describe the structure of the repository.  
+- Added a README to the Simpson’s Paradox project and included more details about the methods used, based on the feedback received.  
+- Updated the Quicksort project: code corrections, improved analysis (confidence intervals and regression), and added a dedicated README.  
+
 ---
 
 ## Repository structure:
 
-### Parallel Quicksort project: 
+### Quicksort project: 
 Project that started as a group assignment and later extended by applying the concepts lerned during the course (confidence intervals, continuous tend, exploration) 
 
 **Link:** https://github.com/sofiacinalli/SMPE-2025-2026/tree/main/Quicksort.md

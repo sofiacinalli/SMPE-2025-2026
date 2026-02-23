@@ -5,7 +5,7 @@ This repository contains notes, excercises and projects related to the whole SMP
 
 - Added a README to the main folder to better describe the structure of the repository.  
 - Added a README to the Simpson’s Paradox project and included more details about the methods used, based on the feedback received.  
-- Updated the Quicksort project: code corrections, improved analysis (confidence intervals and regression), and added a dedicated README.  
+- Updated the Quicksort project: code corrections, improved analysis (confidence intervals and linear regression), and added a dedicated README.  
 
 ---
 
